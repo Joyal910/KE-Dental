@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://Joyal910.github.io/KE-Dental",
+  "homepage": "https://www.kedental.in",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
