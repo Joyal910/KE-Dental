@@ -45,7 +45,7 @@ const Services: React.FC = () => {
     {
       title: 'Conservative Dentistry',
       description: 'Preserving natural teeth through advanced restorative techniques',
-      image: 'https://theerthastoothaffair.com/wp-content/uploads/2024/08/EndodontistCarlsbad.jpg',
+      image: 'https://asmed.dental/wp-content/uploads/2023/06/Conservative-and-Restorative-Dentistry-2.jpg',
       services: ['Composite Fillings', 'Inlays & Onlays', 'Dental Bonding', 'Tooth-Colored Restorations', 'Preventive Care'],
       href: '/services/conservative'
     },
@@ -66,14 +66,14 @@ const Services: React.FC = () => {
     {
       title: 'Orthodontics',
       description: 'Straighten your teeth for a perfect smile',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0pzhLMLEvlTZ016DJiky5rLxuUmuo4OBbsA&s',
+      image: 'https://tkcdental.co.uk/wp-content/uploads/2025/01/invisalign-vs-braces.jpg',
       services: ['Traditional Braces', 'Clear Aligners', 'Retainers', 'Early Treatment', 'Adult Orthodontics'],
       href: '/services/orthodontics'
     },
     {
       title: 'Periodontics',
       description: 'Specialized care for gums and supporting structures',
-      image: 'https://carbassedental.co.uk/wp-content/uploads/2018/03/Periodontics.jpg',
+      image: 'https://www.dentulu.com/assets/img/dentalpedia/iner-page/img/Periodonist.png',
       services: ['Gum Disease Treatment', 'Scaling & Root Planing', 'Gum Surgery', 'Periodontal Maintenance', 'Gum Grafting'],
       href: '/services/periodontics'
     },
@@ -87,14 +87,14 @@ const Services: React.FC = () => {
     {
       title: 'Implantology',
       description: 'Advanced dental implant solutions for missing teeth',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99cMTb580rbIckrAzzSSTqSz_3pr5Pr6N7Lxql5hmyTdwAC8us3ADUufW38PewAoo6jA&usqp=CAU',
+      image: 'https://www.yourmckinneydentist.com/wp-content/uploads/2024/01/what-are-the-new-trends-in-dental-implants.jpg',
       services: ['Single Implants', 'Multiple Implants', 'All-on-4', 'Implant Crowns', 'Bone Augmentation'],
       href: '/services/implantology'
     },
     {
       title: 'Pediatric Dentistry',
       description: 'Gentle dental care specially designed for children',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF73ToySQgwaUfPO0LLXSUUjAV5mZnAQZxvQ&s',
+      image: 'https://www.dentevim.com/upload/pedodontii.jpg',
       services: ['Children\'s Cleanings', 'Fluoride Treatments', 'Sealants', 'Cavity Treatment', 'Behavior Management'],
       href: '/services/pediatric'
     }

@@ -25,7 +25,7 @@ const About = () => {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[#2bafc5] opacity-10"></div>
           <img 
-            src="https://images.pexels.com/photos/3952040/pexels-photo-3952040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            src="https://5.imimg.com/data5/SELLER/Default/2024/4/406473649/AB/UZ/DS/58743858/dental-clinic-interior-designing-service.jpg" 
             alt="Professional dental facility" 
             className="w-full h-full object-cover opacity-30"
           />
