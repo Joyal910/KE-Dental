@@ -403,37 +403,7 @@ Thank you!`;
         </div>
       </section>
 
-      {/* Ready to Transform Your Smile Section */}
-      <section className="py-12 lg:py-20 bg-[#2bafc5] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
-              Ready to Transform Your Smile?
-            </h2>
-            <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8 max-w-2xl mx-auto">
-              Schedule a consultation with our expert doctors and experience the difference of premium dental care
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-3 bg-white text-[#2bafc5] font-bold px-6 lg:px-8 py-3 lg:py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-base lg:text-lg"
-            >
-              <span>Book Appointment</span>
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <Calendar className="w-5 h-5 lg:w-6 lg:h-6" />
-              </motion.div>
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+     
     </div>
   );
 };

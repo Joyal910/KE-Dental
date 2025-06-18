@@ -34,6 +34,15 @@ const Header: React.FC = () => {
     closeMenu();
   }, [location]);
 
+  // Handle scrolling to appointment section after navigation
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash === '#appointment-booking') {
+      setTimeout(() => {
+        document.getElementById('appointment-booking')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location]);
+
   const menuItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
@@ -42,22 +51,12 @@ const Header: React.FC = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const scrollToAppointment = () => {
-    if (location.pathname === '/') {
-      // If on home page, scroll to appointment section
-      document.getElementById('appointment-booking')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // If on other pages, navigate to home and then scroll
-      window.location.href = '/#appointment-booking';
-    }
-  };
-
   return (
     <header className={`sticky top-0 z-30 w-full transition-all duration-300 bg-white shadow-sm border-b ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-         <a href="/" className="flex items-center">
+         <Link to="/" className="flex items-center">
             <img 
               src={kelogo} 
               alt="KE Dental Clinic" 
@@ -65,7 +64,7 @@ const Header: React.FC = () => {
                 isScrolled ? 'h-10' : 'h-14'
               }`}
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -98,13 +97,13 @@ const Header: React.FC = () => {
             ))}
             
             {/* Book Appointment Button */}
-            <button
-              onClick={scrollToAppointment}
-              className="ml-6 text-white px-6 py-2 rounded-md font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:opacity-90"
+            <Link
+              to="/#appointment-booking"
+              className="ml-6 text-white px-6 py-2 rounded-md font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:opacity-90 inline-block"
               style={{ backgroundColor: primaryColor }}
             >
               Book Appointment
-            </button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -158,13 +157,13 @@ const Header: React.FC = () => {
               ))}
               
               {/* Mobile Book Appointment Button */}
-              <button
-                onClick={scrollToAppointment}
+              <Link
+                to="/#appointment-booking"
                 className="block w-full mt-4 text-white px-4 py-3 rounded-md font-medium text-center transition-all duration-200 hover:opacity-90"
                 style={{ backgroundColor: primaryColor }}
               >
                 Book Appointment
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

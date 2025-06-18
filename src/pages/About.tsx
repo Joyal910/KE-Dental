@@ -204,8 +204,8 @@ const About = () => {
             <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8 max-w-2xl mx-auto">
               Schedule a consultation with our expert doctors and experience the difference of premium dental care
             </p>
-            <Link
-              to="/contact"
+             <Link
+              to="/#appointment-booking"
               className="inline-flex items-center space-x-3 bg-white text-[#2bafc5] font-bold px-6 lg:px-8 py-3 lg:py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-base lg:text-lg hover:scale-105"
             >
               <span>Book Appointment</span>
