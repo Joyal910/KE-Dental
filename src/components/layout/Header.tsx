@@ -48,7 +48,7 @@ const Header: React.FC = () => {
       document.getElementById('appointment-booking')?.scrollIntoView({ behavior: 'smooth' });
     } else {
       // If on other pages, navigate to home and then scroll
-      window.location.href = '/appointment-booking';
+      window.location.href = '/#appointment-booking';
     }
   };
 

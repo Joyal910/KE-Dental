@@ -52,7 +52,7 @@ const Services: React.FC = () => {
     {
       title: 'Endodontics',
       description: 'Specialized root canal treatments to save your natural teeth',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80',
+      image: 'https://theerthastoothaffair.com/wp-content/uploads/2024/08/EndodontistCarlsbad.jpg',
       services: ['Root Canal Treatment', 'Pulp Therapy', 'Apicoectomy', 'Retreatment', 'Trauma Management'],
       href: '/services/endodontics'
     },
