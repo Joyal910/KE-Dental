@@ -7,7 +7,7 @@ const UtilityStrip: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm">
         <div className="flex items-center mb-2 sm:mb-0">
           <MapPin size={16} className="mr-1" />
-          <span>Njaliakuzhy, Vakathanam, Kottayam</span>
+          <span>Njaliankuzhy, Vakathanam, Kottayam</span>
         </div>
         <div className="flex items-center mb-2 sm:mb-0">
           <Clock size={16} className="mr-1" />
@@ -15,7 +15,7 @@ const UtilityStrip: React.FC = () => {
         </div>
         <div className="flex items-center font-medium">
           <Phone size={16} className="mr-1" />
-          <span>Appointments: 8089803112</span>
+          <span>Appointments: +918089803112</span>
         </div>
       </div>
     </div>

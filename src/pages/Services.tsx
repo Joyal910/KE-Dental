@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Stethoscope, Smile, Activity, ChevronFirst as FirstAid, Microscope, Heart, ChevronsRight, Clock, CheckCircle, ArrowRight, AlertTriangle, Scissors, Calendar, Baby } from 'lucide-react';
+import { Stethoscope, Smile, Activity, ChevronFirst as FirstAid, Microscope, Heart, ChevronsRight, Clock, CheckCircle, ArrowRight, AlertTriangle, Scissors, Calendar, Baby, Shield, Zap } from 'lucide-react';
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 
@@ -35,52 +35,68 @@ const Services: React.FC = () => {
   // Service categories
   const serviceCategories = [
     {
-      title: 'General Dentistry',
-      description: 'Comprehensive oral health care for the whole family',
-      image: 'https://luxedentalcaremd.com/wp-content/uploads/2020/09/General-Dentistry.jpg',
-      services: ['Regular Cleanings', 'Fillings', 'Root Canal Treatment', 'Extractions', 'Gum Disease Treatment'],
-      href: '/services/general',
-      icon: <Stethoscope className="w-6 h-6" />
+  title: 'General Dentistry',
+  description: 'Comprehensive oral health care for the whole family',
+  image: 'https://luxedentalcaremd.com/wp-content/uploads/2020/09/General-Dentistry.jpg',
+  services: ['Regular Cleanings', 'Fillings', 'Extractions (Simple)', 'Preventive Checkups'],
+  href: '/services/general'
+   },
+
+    {
+      title: 'Conservative Dentistry',
+      description: 'Preserving natural teeth through advanced restorative techniques',
+      image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=800&q=80',
+      services: ['Composite Fillings', 'Inlays & Onlays', 'Dental Bonding', 'Tooth-Colored Restorations', 'Preventive Care'],
+      href: '/services/conservative'
+    },
+    {
+      title: 'Endodontics',
+      description: 'Specialized root canal treatments to save your natural teeth',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80',
+      services: ['Root Canal Treatment', 'Pulp Therapy', 'Apicoectomy', 'Retreatment', 'Trauma Management'],
+      href: '/services/endodontics'
+    },
+    {
+      title: 'Emergency Care',
+      description: 'Emergency dental services when you need them most, providing immediate relief and professional treatment',
+      image: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80',
+      services: ['Severe Toothache', 'Broken Teeth', 'Lost Fillings', '24/7 Availability', 'Immediate Pain Relief'],
+      href: '/services/emergency'
     },
     {
       title: 'Orthodontics',
       description: 'Straighten your teeth for a perfect smile',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0pzhLMLEvlTZ016DJiky5rLxuUmuo4OBbsA&s',
       services: ['Traditional Braces', 'Clear Aligners', 'Retainers', 'Early Treatment', 'Adult Orthodontics'],
-      href: '/services/orthodontics',
-      icon: <Activity className="w-6 h-6" />
+      href: '/services/orthodontics'
     },
     {
       title: 'Periodontics',
       description: 'Specialized care for gums and supporting structures',
       image: 'https://carbassedental.co.uk/wp-content/uploads/2018/03/Periodontics.jpg',
       services: ['Gum Disease Treatment', 'Scaling & Root Planing', 'Gum Surgery', 'Periodontal Maintenance', 'Gum Grafting'],
-      href: '/services/periodontics',
-      icon: <Heart className="w-6 h-6" />
+      href: '/services/periodontics'
     },
     {
       title: 'Oral Surgery',
       description: 'Expert surgical procedures for complex dental issues',
       image: 'https://oralsurgeonhouston.com/wp-content/uploads/AdobeStock_40267406-scaled-1.jpeg',
       services: ['Tooth Extractions', 'Wisdom Teeth Removal', 'Dental Implants', 'Bone Grafting', 'Oral Pathology'],
-      href: '/services/oral-surgery',
-      icon: <Scissors className="w-6 h-6" />
+      href: '/services/oral-surgery'
     },
     {
       title: 'Implantology',
       description: 'Advanced dental implant solutions for missing teeth',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99cMTb580rbIckrAzzSSTqSz_3pr5Pr6N7Lxql5hmyTdwAC8us3ADUufW38PewAoo6jA&usqp=CAU',
       services: ['Single Implants', 'Multiple Implants', 'All-on-4', 'Implant Crowns', 'Bone Augmentation'],
-      href: '/services/implantology',
-      icon: <Microscope className="w-6 h-6" />
+      href: '/services/implantology'
     },
     {
       title: 'Pediatric Dentistry',
       description: 'Gentle dental care specially designed for children',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF73ToySQgwaUfPO0LLXSUUjAV5mZnAQZxvQ&s',
       services: ['Children\'s Cleanings', 'Fluoride Treatments', 'Sealants', 'Cavity Treatment', 'Behavior Management'],
-      href: '/services/pediatric',
-      icon: <Baby className="w-6 h-6" />
+      href: '/services/pediatric'
     }
   ];
 
@@ -131,11 +147,6 @@ const Services: React.FC = () => {
                     className="w-full h-40 lg:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Icon Overlay */}
-                  <div className="absolute top-4 left-4 inline-flex p-2 lg:p-3 rounded-xl bg-white/90 backdrop-blur-sm text-[#2bafc5] shadow-lg">
-                    {category.icon}
-                  </div>
                 </div>
                 <CardContent className="p-4 lg:p-6">
                   <h3 className="text-lg lg:text-xl font-semibold text-gray-800 mb-2 lg:mb-3">{category.title}</h3>

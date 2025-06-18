@@ -159,7 +159,7 @@ Thank you!`;
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
                   {[
                     { icon: <Clock className="w-5 h-5 lg:w-6 lg:h-6" />, text: "33+ Years Experience" },
-                    { icon: <Users className="w-5 h-5 lg:w-6 lg:h-6" />, text: "3.5 Lakhs+ Patients" },
+                    { icon: <Users className="w-5 h-5 lg:w-6 lg:h-6" />, text: "Trusted by Families" },
                     { icon: <Award className="w-5 h-5 lg:w-6 lg:h-6" />, text: "Premium Facility" }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-2 lg:gap-3 text-white bg-white/5 rounded-lg p-3 lg:p-0 lg:bg-transparent">
@@ -360,7 +360,7 @@ Thank you!`;
               <div className="grid grid-cols-2 gap-4 lg:gap-6">
                 {[
                   { icon: <Clock className="w-6 h-6 lg:w-7 lg:h-7" />, title: "33+ Years", subtitle: "Experience", number: "Since 1992" },
-                  { icon: <Users className="w-6 h-6 lg:w-7 lg:h-7" />, title: "3.5 Lakh+", subtitle: "Patients Served", number: "Happy Families" },
+                  { icon: <Users className="w-6 h-6 lg:w-7 lg:h-7" />, title: "Trusted", subtitle: "by Community", number: "Smiles Built" },
                   { icon: <Award className="w-6 h-6 lg:w-7 lg:h-7" />, title: "Premium", subtitle: "Facility", number: "Modern Equipment" },
                   { icon: <Heart className="w-6 h-6 lg:w-7 lg:h-7" />, title: "Patient", subtitle: "Focused Care", number: "Comfort First" }
                 ].map((item, index) => (
@@ -443,25 +443,25 @@ Thank you!`;
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                name: "Rajesh Thomas",
+                name: "Anju Thomas",
                 role: "15-Year Patient",
-                text: "Exceptional care for over 15 years. The team's professionalism and the comfortable facility make every visit pleasant. Truly premium dental care.",
+                text: "For the last 10 years we have been driving to KE DENTAL CARE without any doubts for all our dental issues. Dr.Binoy is a very competent professional and his team is always welcoming. The clinical environment is high tech and sterile. Highly Recommended.",
                 rating: 5,
-                initials: "RT"
+                initials: "AT"
               },
               {
-                name: "Priya Nair",
+                name: "Actlab Casting",
                 role: "Family Patient",
-                text: "Dr. Binoy and the team are wonderful with children. My family has been coming here for years. The quality of care is outstanding.",
+                text: "For years, our family has been receiving treatment at K.E. Dental Care in Njaliamkuzhi under Dr. Binoy. It is a 100% trustworthy clinic. Heartfelt thanks to Dr. Binoy Sir 🙏",
                 rating: 5,
-                initials: "PN"
+                initials: "AC"
               },
               {
-                name: "Joseph Mathew",
+                name: "JosephKutty Thomas",
                 role: "Cosmetic Patient",
-                text: "The cosmetic dentistry work completely transformed my smile. Professional results that exceeded my expectations. Highly recommend KE Dental.",
+                text: "Highly Recommended!I had a great experience at K E Dental Clinic. The staff is friendly, professional, and made me feel completely at ease from the moment I walked in. Dr. Binoy was patient and explained everything clearly before starting the treatment. The clinic is very clean, modern, and well-equipped. I went in for a root canal and was surprised at how painless and smooth the entire process was. They also follow proper hygiene protocols, which is reassuring. Definitely one of the best dental clinics in the area!",
                 rating: 5,
-                initials: "JM"
+                initials: "JT"
               }
             ].map((testimonial, index) => (
               <motion.div
