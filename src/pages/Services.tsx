@@ -45,7 +45,7 @@ const Services: React.FC = () => {
     {
       title: 'Conservative Dentistry',
       description: 'Preserving natural teeth through advanced restorative techniques',
-      image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=800&q=80',
+      image: 'https://theerthastoothaffair.com/wp-content/uploads/2024/08/EndodontistCarlsbad.jpg',
       services: ['Composite Fillings', 'Inlays & Onlays', 'Dental Bonding', 'Tooth-Colored Restorations', 'Preventive Care'],
       href: '/services/conservative'
     },
