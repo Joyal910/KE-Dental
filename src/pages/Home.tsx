@@ -40,14 +40,25 @@ const PremiumDentalHomepage = () => {
   const { scrollY } = useScroll();
   const heroParallax = useTransform(scrollY, [0, 500], [0, -100]);
 
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitSuccessful } } = useForm<FormData>();
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitSuccessful } } = useForm<FormData>({
+    mode: 'onBlur', // Change validation mode for better mobile experience
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      date: '',
+      message: ''
+    }
+  });
   
   const onSubmit = async (data: FormData) => {
-    // Simulate form submission delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Create WhatsApp message template
-    const whatsappMessage = `*New Appointment Request - KE Dental Clinic*
+    try {
+      // Simulate form submission delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Create WhatsApp message template
+      const whatsappMessage = `*New Appointment Request - KE Dental Clinic*
 
 👤 *Patient Details:*
 Name: ${data.name}
@@ -66,15 +77,41 @@ ${data.message || 'No additional information provided'}
 
 Thank you!`;
 
-    // WhatsApp number (replace with actual clinic number)
-    const whatsappNumber = '918089803112';
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-    
-    // Open WhatsApp
-    window.open(whatsappURL, '_blank');
-    
-    // Reset form after successful submission
-    reset();
+      // WhatsApp number (replace with actual clinic number)
+      const whatsappNumber = '918089803112';
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+      
+      // For iOS Safari, use window.location.href instead of window.open for better compatibility
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        window.location.href = whatsappURL;
+      } else {
+        window.open(whatsappURL, '_blank');
+      }
+      
+      // Reset form after successful submission
+      reset();
+    } catch (error) {
+      console.error('Form submission error:', error);
+    }
+  };
+
+  // Get today's date in YYYY-MM-DD format for min date
+  const getTodayDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  // Get max date (3 months from now)
+  const getMaxDate = () => {
+    const maxDate = new Date();
+    maxDate.setMonth(maxDate.getMonth() + 3);
+    const year = maxDate.getFullYear();
+    const month = String(maxDate.getMonth() + 1).padStart(2, '0');
+    const day = String(maxDate.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   useEffect(() => {
@@ -564,7 +601,7 @@ Thank you!`;
                 </div>
 
                 {/* Form Content */}
-                <form onSubmit={handleSubmit(onSubmit)} className="p-6 lg:p-8">
+                <form onSubmit={handleSubmit(onSubmit)} className="p-6 lg:p-8" noValidate>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-4 lg:mb-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -573,15 +610,22 @@ Thank you!`;
                       <input
                         id="name"
                         type="text"
-                        className={`w-full px-3 lg:px-4 py-2 lg:py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-sm lg:text-base ${
+                        autoComplete="name"
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-base ${
                           errors.name ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                         placeholder="Enter your full name"
-                        {...register("name", { required: "Name is required" })}
+                        {...register("name", { 
+                          required: "Name is required",
+                          minLength: {
+                            value: 2,
+                            message: "Name must be at least 2 characters"
+                          }
+                        })}
                       />
                       {errors.name && (
                         <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                          <AlertTriangle className="w-4 h-4" />
+                          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                           {errors.name.message}
                         </p>
                       )}
@@ -594,7 +638,8 @@ Thank you!`;
                       <input
                         id="email"
                         type="email"
-                        className={`w-full px-3 lg:px-4 py-2 lg:py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-sm lg:text-base ${
+                        autoComplete="email"
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-base ${
                           errors.email ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                         placeholder="Enter your email address"
@@ -602,13 +647,13 @@ Thank you!`;
                           required: "Email is required",
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: "Invalid email address"
+                            message: "Please enter a valid email address"
                           }
                         })}
                       />
                       {errors.email && (
                         <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                          <AlertTriangle className="w-4 h-4" />
+                          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                           {errors.email.message}
                         </p>
                       )}
@@ -621,15 +666,22 @@ Thank you!`;
                       <input
                         id="phone"
                         type="tel"
-                        className={`w-full px-3 lg:px-4 py-2 lg:py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-sm lg:text-base ${
+                        autoComplete="tel"
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-base ${
                           errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                         placeholder="Enter your phone number"
-                        {...register("phone", { required: "Phone number is required" })}
+                        {...register("phone", { 
+                          required: "Phone number is required",
+                          pattern: {
+                            value: /^[+]?[\d\s\-\(\)]{10,}$/,
+                            message: "Please enter a valid phone number"
+                          }
+                        })}
                       />
                       {errors.phone && (
                         <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                          <AlertTriangle className="w-4 h-4" />
+                          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                           {errors.phone.message}
                         </p>
                       )}
@@ -641,7 +693,7 @@ Thank you!`;
                       </label>
                       <select
                         id="service"
-                        className={`w-full px-3 lg:px-4 py-2 lg:py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-sm lg:text-base ${
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-base bg-white ${
                           errors.service ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                         {...register("service", { required: "Please select a service" })}
@@ -657,7 +709,7 @@ Thank you!`;
                       </select>
                       {errors.service && (
                         <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                          <AlertTriangle className="w-4 h-4" />
+                          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                           {errors.service.message}
                         </p>
                       )}
@@ -670,15 +722,16 @@ Thank you!`;
                       <input
                         id="date"
                         type="date"
-                        className={`w-full px-3 lg:px-4 py-2 lg:py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-sm lg:text-base ${
+                        className={`w-full px-3 lg:px-4 py-3 lg:py-4 border-2 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 text-base ${
                           errors.date ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
-                        {...register("date", { required: "Please select a date" })}
-                        min={new Date().toISOString().split('T')[0]}
+                        {...register("date", { required: "Please select a preferred date" })}
+                        min={getTodayDate()}
+                        max={getMaxDate()}
                       />
                       {errors.date && (
                         <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                          <AlertTriangle className="w-4 h-4" />
+                          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                           {errors.date.message}
                         </p>
                       )}
@@ -691,7 +744,7 @@ Thank you!`;
                       <textarea
                         id="message"
                         rows={4}
-                        className="w-full px-3 lg:px-4 py-2 lg:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 hover:border-gray-300 text-sm lg:text-base"
+                        className="w-full px-3 lg:px-4 py-3 lg:py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2bafc5]/20 focus:border-[#2bafc5] outline-none transition-all duration-200 hover:border-gray-300 text-base resize-none"
                         placeholder="Please share any specific concerns, preferred time, or questions you have..."
                         {...register("message")}
                       ></textarea>
@@ -702,22 +755,22 @@ Thank you!`;
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3 lg:py-4 px-6 lg:px-8 bg-gradient-to-r from-[#2bafc5] to-[#249aad] hover:from-[#249aad] hover:to-[#2bafc5] text-white font-bold rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-sm lg:text-base"
+                      className="w-full py-4 lg:py-5 px-6 lg:px-8 bg-gradient-to-r from-[#2bafc5] to-[#249aad] hover:from-[#249aad] hover:to-[#2bafc5] text-white font-bold rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-base lg:text-lg"
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="w-4 h-4 lg:w-5 lg:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                           Sending Request...
                         </>
                       ) : (
                         <>
-                          <Calendar className="w-4 h-4 lg:w-5 lg:h-5" />
+                          <Calendar className="w-5 h-5" />
                           Request Appointment via WhatsApp
                         </>
                       )}
                     </button>
                     
-                    <p className="text-center text-xs lg:text-sm text-gray-500 mt-3 lg:mt-4">
+                    <p className="text-center text-sm text-gray-500 mt-4">
                       By submitting this form, you agree to be contacted via WhatsApp for appointment confirmation
                     </p>
                   </div>
