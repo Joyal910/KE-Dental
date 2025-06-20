@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Award, Users, Heart, Clock, Landmark, BookOpen, CheckCircle, Calendar, Coffee, Shield, Stethoscope, Car } from 'lucide-react';
+import front from '../assets/clinic_pic/front.png';
 
 const SectionTitle = ({ title, subtitle, className = "" }) => (
   <div className={`text-center mb-8 lg:mb-16 ${className}`}>
@@ -79,7 +80,7 @@ const About = () => {
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-[#2bafc5] to-teal-600 opacity-10 rounded-lg"></div>
               <img 
-                src="https://images.pexels.com/photos/3779700/pexels-photo-3779700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                src={front} 
                 alt="Professional dental practice" 
                 className="relative w-full h-auto rounded-lg shadow-2xl"
               />
