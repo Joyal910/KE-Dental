@@ -259,20 +259,20 @@ Thank you!`;
                 title: "General Dentistry",
                 description: "Comprehensive oral health care for the whole family including regular cleanings, fillings, and preventive treatments.",
                 services: ["Regular Cleanings", "Fillings", "Root Canal Treatment", "Extractions", "Gum Disease Treatment"],
-                image: "https://luxedentalcaremd.com/wp-content/uploads/2020/09/General-Dentistry.jpg"
+                image: "https://images.pexels.com/photos/4269694/pexels-photo-4269694.jpeg?_gl=1*17s4jx3*_ga*OTE2NDcyMTY4LjE3MzYzMjIzOTU.*_ga_8JE65Q40S6*czE3NTA3MDQ2ODUkbzMkZzEkdDE3NTA3MDUzNjMkajU5JGwwJGgw"
               },
               {
                 title: "Cosmetic Dentistry", 
                 description: "Transform your smile with aesthetic dental procedures including whitening, veneers, and complete smile makeovers.",
                 services: ["Teeth Whitening", "Veneers", "Bonding", "Smile Makeovers", "Gum Contouring"],
                 featured: true,
-                image: "https://www.boondental.in/wp-content/uploads/2021/03/TEETH-WHITENING.jpg"
+                image: "https://img.freepik.com/free-photo/woman-whitening-treatment_1232-185.jpg?ga=GA1.1.836884953.1735622152&semt=ais_items_boosted&w=740"
               },
               {
                 title: "Emergency Care",
                 description: "Emergency dental services when you need them most, providing immediate relief and professional treatment.",
                 services: ["Severe Toothache", "Broken Teeth", "Lost Fillings", "Dental Trauma", "After-Hours Care"],
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI0NM2Zao691r6JGCFj1DMsLxlOFVS3KTH4A&s"
+                image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80"
               }
             ].map((service, index) => (
               <motion.div

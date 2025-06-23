@@ -37,7 +37,7 @@ const Services: React.FC = () => {
     {
   title: 'General Dentistry',
   description: 'Comprehensive oral health care for the whole family',
-  image: 'https://luxedentalcaremd.com/wp-content/uploads/2020/09/General-Dentistry.jpg',
+  image: 'https://images.pexels.com/photos/4269694/pexels-photo-4269694.jpeg?_gl=1*17s4jx3*_ga*OTE2NDcyMTY4LjE3MzYzMjIzOTU.*_ga_8JE65Q40S6*czE3NTA3MDQ2ODUkbzMkZzEkdDE3NTA3MDUzNjMkajU5JGwwJGgw',
   services: ['Regular Cleanings', 'Fillings', 'Extractions (Simple)', 'Preventive Checkups'],
   href: '/services/general'
    },
@@ -45,7 +45,7 @@ const Services: React.FC = () => {
     {
       title: 'Conservative Dentistry',
       description: 'Preserving natural teeth through advanced restorative techniques',
-      image: 'https://asmed.dental/wp-content/uploads/2023/06/Conservative-and-Restorative-Dentistry-2.jpg',
+      image: 'https://img.freepik.com/free-photo/woman-whitening-treatment_1232-185.jpg?ga=GA1.1.836884953.1735622152&semt=ais_items_boosted&w=740',
       services: ['Composite Fillings', 'Inlays & Onlays', 'Dental Bonding', 'Tooth-Colored Restorations', 'Preventive Care'],
       href: '/services/conservative'
     },
@@ -66,35 +66,35 @@ const Services: React.FC = () => {
     {
       title: 'Orthodontics',
       description: 'Straighten your teeth for a perfect smile',
-      image: 'https://tkcdental.co.uk/wp-content/uploads/2025/01/invisalign-vs-braces.jpg',
+      image: 'https://theerthastoothaffair.com/wp-content/uploads/2024/10/tauntonorthodontics-why-orthodontic-treatment-is-important.jpeg',
       services: ['Traditional Braces', 'Clear Aligners', 'Retainers', 'Early Treatment', 'Adult Orthodontics'],
       href: '/services/orthodontics'
     },
     {
       title: 'Periodontics',
       description: 'Specialized care for gums and supporting structures',
-      image: 'https://www.dentulu.com/assets/img/dentalpedia/iner-page/img/Periodonist.png',
+      image: 'https://theerthastoothaffair.com/wp-content/uploads/2024/10/nonsurgical-periodontal-treatment.jpg',
       services: ['Gum Disease Treatment', 'Scaling & Root Planing', 'Gum Surgery', 'Periodontal Maintenance', 'Gum Grafting'],
       href: '/services/periodontics'
     },
     {
       title: 'Oral Surgery',
       description: 'Expert surgical procedures for complex dental issues',
-      image: 'https://oralsurgeonhouston.com/wp-content/uploads/AdobeStock_40267406-scaled-1.jpeg',
+      image: 'https://img.freepik.com/free-photo/dentist-assistant-surgery-dental-clinic_140725-7688.jpg?ga=GA1.1.836884953.1735622152&semt=ais_items_boosted&w=740',
       services: ['Tooth Extractions', 'Wisdom Teeth Removal', 'Dental Implants', 'Bone Grafting', 'Oral Pathology'],
       href: '/services/oral-surgery'
     },
     {
       title: 'Implantology',
       description: 'Advanced dental implant solutions for missing teeth',
-      image: 'https://www.yourmckinneydentist.com/wp-content/uploads/2024/01/what-are-the-new-trends-in-dental-implants.jpg',
+      image: 'https://images.pexels.com/photos/6502305/pexels-photo-6502305.jpeg?auto=compress&cs=tinysrgb&w=1200',
       services: ['Single Implants', 'Multiple Implants', 'All-on-4', 'Implant Crowns', 'Bone Augmentation'],
       href: '/services/implantology'
     },
     {
       title: 'Pediatric Dentistry',
       description: 'Gentle dental care specially designed for children',
-      image: 'https://www.dentevim.com/upload/pedodontii.jpg',
+      image: 'https://img.freepik.com/free-photo/happy-afro-kid-regular-check-up-teeth-dental-clinic_651396-1411.jpg?semt=ais_hybrid&w=740',
       services: ['Children\'s Cleanings', 'Fluoride Treatments', 'Sealants', 'Cavity Treatment', 'Behavior Management'],
       href: '/services/pediatric'
     }
